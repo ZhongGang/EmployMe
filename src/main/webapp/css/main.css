@@ -1,0 +1,124 @@
+input[type='text'] {
+    width: 300px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid #999;
+    font-size: 20px;
+}
+
+input[type='password'] {
+    width: 300px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid #999;
+    font-size: 20px;
+}
+
+input[type='button'], input[type='submit'] {
+    cursor: pointer;
+    width: 160px;
+    height: 40px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 5px;
+    border: 1px solid #999;
+    background-color: #71D1FF;
+    color: #fff !important;
+    letter-spacing: 15px
+}
+
+label {
+    letter-spacing: 5px;
+    font: bold 16px/33px 'Microsoft YaHei'
+}
+
+textarea {
+    resize: none;
+    border-radius: 5px;
+    border: 1px solid #999;
+}
+
+select {
+    width: 120px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid #999;
+    font-size: 20px;
+}
+
+fieldset {
+    border-radius: 5px;
+    width: 97%;;
+    padding-left: 10px;
+    background-color: #f5f5f5;
+}
+
+#articleView {
+    padding: 10px;
+}
+
+#articleView h3 {
+    margin-bottom: 5px
+}
+
+#articleView div {
+    overflow: hidden;
+}
+
+#resume {
+    padding: 10px 10px 10px 10px;
+}
+
+#resume fieldset {
+    background-color: #f5f5f5;
+    margin-bottom: 10px;
+}
+
+#resume fieldset div table {
+    margin-bottom: 5px;
+}
+
+#resume fieldset legend a {
+    cursor: pointer;
+    color: #71D1FF;
+    text-decoration: none;
+    font-weight: bolder;
+    font-size: x-large;
+}
+
+#resume fieldset legend {
+    font-weight: bolder;
+    font-size: larger;
+}
+
+#resume fieldset fieldset legend a {
+    cursor: pointer;
+    color: #71D1FF;
+    text-decoration: none;
+    font-weight: bolder;
+    font-size: xx-large;
+}
+
+#resume fieldset fieldset legend {
+    font-weight: normal;
+    font-size: large;
+}
+
+.ui-datepicker select.ui-datepicker-month, .ui-datepicker select.ui-datepicker-year {
+    width: 45%
+}
+
+#articleOverview fieldset div {
+    width: 760;
+    height: 120px;
+    overflow: hidden;
+}
+
+#articleOverview fieldset {
+    margin-bottom: 10px;
+    background-color: #f5f5f5;
+}
+
+#newArticleButton {
+    width: 200px;
+}

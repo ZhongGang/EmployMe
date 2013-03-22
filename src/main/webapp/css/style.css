@@ -1,0 +1,158 @@
+* {
+    margin: 0px;
+}
+
+body {
+    font: normal 16px/33px 'Microsoft YaHei';
+    padding: 0px;
+    background-color: #71D1FF;
+    color: #222222;
+}
+
+a {
+    background-color: inherit;
+    color: #0000EE;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+p {
+    text-align: justify;
+    margin-bottom: 15px;
+    line-height: 22px;
+}
+
+ul {
+    list-style: disc;
+    padding-left: 15px;
+    margin-bottom: 15px;
+}
+
+h3 {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+h4 {
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+#header {
+    background-color: #61D1FA;
+    color: #fff;
+    padding: 20px 20px 20px 20px;
+}
+
+#header #leftHeader {
+    float: left;
+    width: 50%;
+}
+
+#header #rightHeader {
+    float: right;
+    width: 50%;
+    text-align: right;
+}
+
+#header h1 {
+    font-size: 40px;
+}
+
+#header h2 {
+    font-size: 20px;
+}
+
+#menu {
+    padding: 5px 30px 0px 30px;
+    margin-bottom: 30px;
+    color: #222222;
+    background-color: #71D1FF;
+    border-bottom: solid 1px #DADADA;
+    clear: both;
+}
+
+#menu div {
+    clear: both;
+}
+
+#menu ul {
+    display: block;
+    position: relative;
+    top: 1px;
+    list-style: none;
+    padding: 0px;
+    margin-bottom: 0px;
+}
+
+#menu ul li {
+    position: relative;
+    float: left;
+    border: solid 1px #dadada;
+    border-bottom: 0px;
+    margin-right: 5px;
+    border-radius: 5px;
+}
+
+#menu ul li a {
+    display: block;
+    padding: 5px 10px 8px 10px;
+    text-decoration: none;
+    background-color: inherit;
+    color: #333333;
+    font-size: larger;
+    font-weight: bolder;
+}
+
+#menu ul li a:hover {
+    background-color: #0022AA;
+    color: #fff;
+}
+
+#menu ul li.active, #menu ul li.active a, #menu ul li.active a:hover {
+    background-color: #71D1FF;
+    color: #ffffff;
+}
+
+#container {
+    position: relative;
+    width: 920px;
+    background-color: #ffffff;
+    border: 1px solid #71D1FF;
+    padding: 20px 20px 20px 20px;
+    border-radius: 5px;
+}
+
+#primarycontainer {
+    float: left;
+    margin-right: -200px;
+    width: 100%;
+}
+
+#primarycontent {
+    margin-right: 240px;
+}
+
+#primarycontent p {
+    margin-bottom: 20px;
+}
+
+#secondarycontent {
+    float: right;
+    width: 200px;
+}
+
+#footer {
+    text-align: center;
+    margin: 20px 0px 0px 0px;
+    padding-top: 15px;
+    border-top: solid 1px #71D1FF;
+    clear: both;
+}
+
+.clearit {
+    clear: both;
+    height: 1px;
+}

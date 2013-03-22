@@ -1,0 +1,38 @@
+body {
+    font: normal 16px/33px 'Microsoft YaHei';
+    padding: 0px;
+    background-color: #71D1FF;
+}
+
+#logon {
+    padding: 20px 10px 10px 10px;
+    width: 500px;
+    margin-top: 100px;
+    background-color: #f5f5f5;
+    border: 1px solid #71D1FF;
+    border-radius: 5px;
+}
+
+#footer {
+    text-align: center;
+    margin: 20px 0px 0px 0px;
+    padding-top: 15px;
+    clear: both;
+}
+
+.error {
+    color: #ff0000;
+}
+
+#rememberMe{
+    margin-right: 15px;
+}
+
+#forgetPassword{
+    margin-left: 50px;
+    text-decoration: none;
+}
+
+#forgetPassword:hover{
+    color: red;
+}

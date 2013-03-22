@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping default-access="field">
+    <class name="com.dream.domain.article.Article" table="article">
+        <id name="id" column="id" type="java.lang.Integer">
+            <generator class="native"/>
+        </id>
+        <version name="version" column="version" type="java.lang.Integer"/>
+        <property name="active" column="active" type="java.lang.Boolean"/>
+        <property name="guid" column="guid" type="java.lang.String"/>
+        <property name="createTime" column="create_time"
+                  type="org.jadira.usertype.dateandtime.joda.PersistentLocalDateTime"/>
+        <property name="title" column="title" type="java.lang.String"/>
+        <property name="content" column="content" type="java.lang.String"/>
+        <property name="category" column="category">
+            <type name="org.hibernate.type.EnumType">
+                <param name="enumClass">com.dream.domain.article.Category</param>
+                <param name="useNamed">true</param>
+            </type>
+        </property>
+
+        <bag name="comments">
+            <key column="article_id"/>
+            <one-to-many class="com.dream.domain.article.Comment"/>
+        </bag>
+
+        <many-to-one name="user" column="user_id" class="com.dream.domain.user.User"/>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+    <bean id="domainObjectDao" class="com.dream.dao.impl.DomainObjectDaoImpl" abstract="true">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="articleDao" class="com.dream.dao.impl.ArticleDaoImpl" parent="domainObjectDao"/>
+
+    <bean id="commonDao" class="com.dream.dao.impl.CommonDaoImpl" parent="domainObjectDao"/>
+
+    <bean id="resumeDao" class="com.dream.dao.impl.ResumeDaoImpl" parent="domainObjectDao"/>
+
+    <bean id="userDao" class="com.dream.dao.impl.UserDaoImpl" parent="domainObjectDao"/>
+</beans>

@@ -1,0 +1,2 @@
+insert into users(id, guid, type, username, password, email, nickname)
+            values(1,'b9a11180-7164-4d00-a5ab-25a08f229c87','ADMINISTRATOR','administrator','b3c99f59d8697de1ad0b9feaf41753ef','120859274@qq.com','超级管理员')

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping default-access="field">
+    <class name="com.dream.domain.resume.WorkExperience" table="work_experience">
+        <id name="id" column="id" type="java.lang.Integer">
+            <generator class="native"/>
+        </id>
+        <version name="version" column="version" type="java.lang.Integer"/>
+        <property name="active" column="active" type="java.lang.Boolean"/>
+        <property name="guid" column="guid" type="java.lang.String"/>
+        <property name="createTime" column="create_time"
+                  type="org.jadira.usertype.dateandtime.joda.PersistentLocalDateTime"/>
+        <property name="startDate" column="start_date" type="org.jadira.usertype.dateandtime.joda.PersistentLocalDate"/>
+        <property name="endDate" column="end_date" type="org.jadira.usertype.dateandtime.joda.PersistentLocalDate"/>
+        <property name="company" column="company" type="java.lang.String"/>
+        <property name="position" column="position" type="java.lang.String"/>
+        <property name="department" column="department" type="java.lang.String"/>
+        <property name="description" column="description" type="java.lang.String"/>
+    </class>
+</hibernate-mapping>

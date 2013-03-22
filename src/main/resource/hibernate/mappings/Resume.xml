@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping default-access="field">
+    <class name="com.dream.domain.resume.Resume" table="resume">
+        <id name="id" column="id" type="java.lang.Integer">
+            <generator class="native"/>
+        </id>
+        <version name="version" column="version" type="java.lang.Integer"/>
+        <property name="active" column="active" type="java.lang.Boolean"/>
+        <property name="guid" column="guid" type="java.lang.String"/>
+        <property name="createTime" column="create_time"
+                  type="org.jadira.usertype.dateandtime.joda.PersistentLocalDateTime"/>
+
+        <component name="basicInfo" class="com.dream.domain.resume.BasicInfo">
+            <component name="name" class="com.dream.domain.resume.Name">
+                <property name="englishName" column="english_name" type="java.lang.String"/>
+                <property name="chineseName" column="chinese_name" type="java.lang.String"/>
+            </component>
+            <property name="birthday" column="birthday"
+                      type="org.jadira.usertype.dateandtime.joda.PersistentLocalDate"/>
+            <property name="phone" column="phone" type="java.lang.String"/>
+            <property name="email" column="email" type="java.lang.String"/>
+            <property name="qq" column="qq" type="java.lang.String"/>
+            <property name="gender" column="gender">
+                <type name="org.hibernate.type.EnumType">
+                    <param name="enumClass">com.dream.domain.resume.Gender</param>
+                    <param name="useNamed">true</param>
+                </type>
+            </property>
+            <property name="address" column="address" type="java.lang.String"/>
+            <property name="selfDescription" column="self_description" type="java.lang.String"/>
+            <!--<many-to-one name="portrait" column="portrait_id" unique="true" cascade="all"-->
+                         <!--class="com.dream.domain.attachment.Portrait"/>-->
+        </component>
+
+        <bag name="educationExperiences" cascade="all">
+            <key column="resume_id"/>
+            <one-to-many class="com.dream.domain.resume.EducationExperience"/>
+        </bag>
+        <bag name="workExperiences" cascade="all">
+            <key column="resume_id"/>
+            <one-to-many class="com.dream.domain.resume.WorkExperience"/>
+        </bag>
+        <bag name="projectExperiences" cascade="all">
+            <key column="resume_id"/>
+            <one-to-many class="com.dream.domain.resume.ProjectExperience"/>
+        </bag>
+
+        <many-to-one name="user" column="user_id" class="com.dream.domain.user.User" unique="true"/>
+    </class>
+</hibernate-mapping>

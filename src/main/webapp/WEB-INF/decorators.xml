@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<decorators>
+
+    <decorator name="main" page="/decorator/main.jsp">
+        <pattern>/article*</pattern>
+        <pattern>/resume*</pattern>
+    </decorator>
+
+    <decorator name="logon" page="/decorator/logon.jsp">
+        <pattern>/login*</pattern>
+        <pattern>/register*</pattern>
+    </decorator>
+
+    <decorator name="index" page="/decorator/index.jsp">
+        <pattern>/index*</pattern>
+    </decorator>
+
+    <decorator name="admin" page="/decorator/admin.jsp">
+        <pattern>/admin*</pattern>
+    </decorator>
+
+    <excludes>
+        <pattern>/resume/educationExperienceItem/generate*</pattern>
+        <pattern>/resume/workExperienceItem/generate*</pattern>
+        <pattern>/resume/projectExperienceItem/generate*</pattern>
+        <pattern>/resume/portrait/show*</pattern>
+    </excludes>
+
+</decorators>

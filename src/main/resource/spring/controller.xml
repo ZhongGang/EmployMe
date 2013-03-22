@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+    <bean id="articleFormController" class="com.dream.web.controller.article.ArticleFormController">
+        <property name="articleService" ref="articleService"/>
+        <property name="validator" ref="articleValidator"/>
+    </bean>
+
+    <bean id="indexController" class="com.dream.web.controller.IndexController">
+        <property name="userService" ref="userService"/>
+    </bean>
+
+    <bean id="loginFormController" class="com.dream.web.controller.LoginFormController">
+        <property name="validator" ref="loginValidator"/>
+    </bean>
+
+    <bean id="articlesOverviewController" class="com.dream.web.controller.article.ArticlesOverviewController">
+        <property name="articleService" ref="articleService"/>
+    </bean>
+
+    <bean id="articleViewController" class="com.dream.web.controller.article.ArticleViewController">
+        <property name="articleService" ref="articleService"/>
+    </bean>
+
+    <bean id="articleDeactiveController" class="com.dream.web.controller.article.ArticleDeactiveController">
+        <property name="commonService" ref="commonService"/>
+    </bean>
+
+    <bean id="articleActiveController" class="com.dream.web.controller.article.ArticleActiveController">
+        <property name="commonService" ref="commonService"/>
+    </bean>
+
+    <bean id="resumeFormController" class="com.dream.web.controller.resume.ResumeFormController">
+        <property name="resumeService" ref="resumeService"/>
+        <property name="validator" ref="resumeValidator"/>
+    </bean>
+
+    <bean id="educationExperienceItemGenerateController"
+          class="com.dream.web.controller.resume.EducationExperienceItemGenerateController"/>
+
+    <bean id="workExperienceItemGenerateController"
+          class="com.dream.web.controller.resume.WorkExperienceItemGenerateController"/>
+
+    <bean id="projectExperienceItemGenerateController"
+          class="com.dream.web.controller.resume.ProjectExperienceItemGenerateController"/>
+
+    <bean id="resumePreviewController" class="com.dream.web.controller.resume.ResumePreviewController"/>
+
+    <bean id="portraitShowController" class="com.dream.web.controller.resume.PortraitShowController">
+        <property name="resumeService" ref="resumeService"/>
+    </bean>
+
+    <bean id="registerFormController" class="com.dream.web.controller.user.registration.RegisterFormController">
+        <property name="userService" ref="userService"/>
+        <property name="validator" ref="registerValidator"/>
+    </bean>
+
+    <bean id="userInfoChangeController" class="com.dream.web.controller.user.UserInfoChangeController">
+        <property name="userService" ref="userService"/>
+        <property name="validator" ref="userInfoChangeValidator"/>
+    </bean>
+
+    <bean id="resumeViewController" class="com.dream.web.controller.index.ResumeViewController">
+        <property name="resumeService" ref="resumeService"/>
+    </bean>
+
+    <bean id="userManageController" class="com.dream.web.controller.admin.UserManageController"/>
+</beans>
