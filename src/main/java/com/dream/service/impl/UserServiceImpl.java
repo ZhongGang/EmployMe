@@ -6,6 +6,7 @@ import com.dream.domain.user.User;
 import com.dream.dto.index.BriefUserDTO;
 import com.dream.dto.user.UserInfoChangeDTO;
 import com.dream.dto.user.registration.RegistrationDTO;
+import com.dream.mail.MailService;
 import com.dream.service.UserService;
 import com.dream.util.SecurityUtil;
 import org.springframework.security.authentication.encoding.PasswordEncoder;
@@ -24,6 +25,7 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
     private UserDao userDao;
     private PasswordEncoder passwordEncoder;
+    private MailService mailService;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -34,6 +36,7 @@ public class UserServiceImpl implements UserService {
     public void createApplicant(RegistrationDTO registrationDTO) {
         User user = registrationDTO.toNewApplicant(passwordEncoder);
         userDao.saveOrUpdate(user);
+        mailService.sendRegistrationMail(user);
     }
 
     @Override
@@ -86,5 +89,9 @@ public class UserServiceImpl implements UserService {
 
     public void setPasswordEncoder(PasswordEncoder passwordEncoder) {
         this.passwordEncoder = passwordEncoder;
+    }
+
+    public void setMailService(MailService mailService) {
+        this.mailService = mailService;
     }
 }

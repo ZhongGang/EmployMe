@@ -9,7 +9,7 @@
 
     <context:property-placeholder location="classpath:mail.properties" ignore-unresolvable="true"/>
 
-    <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+    <bean id="mailSender" class="com.dream.mail.impl.SimpleMailSenderImpl">
         <property name="defaultEncoding" value="${encoding}"/>
         <property name="host" value="${host}"/>
         <property name="port" value="${port}"/>
@@ -21,5 +21,12 @@
                 <prop key="mail.smtp.auth">${mail.smtp.auth}</prop>
             </props>
         </property>
+
+        <property name="defaultFromAddress" value="${default.from.address}"/>
+        <property name="defaultToAddress" value="${default.to.address}"/>
+    </bean>
+
+    <bean id="mailService" class="com.dream.mail.impl.MailServiceImpl">
+        <property name="mailSender" ref="mailSender"/>
     </bean>
 </beans>

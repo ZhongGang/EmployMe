@@ -19,5 +19,6 @@
     <bean id="userService" class="com.dream.service.impl.UserServiceImpl">
         <property name="userDao" ref="userDao"/>
         <property name="passwordEncoder" ref="md5PasswordEncoder"/>
+        <property name="mailService" ref="mailService"/>
     </bean>
 </beans>
