@@ -2,9 +2,9 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <html>
 <head>
-    <title>欢迎来到钟刚的个人网站</title>
+    <title>403</title>
 </head>
 <body>
-<%response.sendRedirect("index");%>
+<h1>你没有权限访问当前链接</h1>
 </body>
 </html>
