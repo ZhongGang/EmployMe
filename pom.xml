@@ -22,6 +22,7 @@
         <aspectj.version>1.7.2</aspectj.version>
         <java.melody.version>1.43.0</java.melody.version>
         <tomcat.version>7.0.35</tomcat.version>
+        <apache.shiro.version>1.2.1</apache.shiro.version>
     </properties>
 
     <dependencies>
@@ -223,6 +224,23 @@
             <version>${java.melody.version}</version>
         </dependency>
 
+
+        <!-- Shiro -->
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-core</artifactId>
+            <version>${apache.shiro.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-web</artifactId>
+            <version>${apache.shiro.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-spring</artifactId>
+            <version>${apache.shiro.version}</version>
+        </dependency>
     </dependencies>
 
     <repositories>

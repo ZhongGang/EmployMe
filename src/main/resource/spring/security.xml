@@ -1,52 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans:beans xmlns="http://www.springframework.org/schema/security"
-             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:beans="http://www.springframework.org/schema/beans"
-             xsi:schemaLocation="http://www.springframework.org/schema/security
-                           http://www.springframework.org/schema/security/spring-security-3.1.xsd
-                           http://www.springframework.org/schema/beans
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
                            http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
 
-    <http pattern="/index*" security="none"/>
-    <http pattern="/login*" security="none"/>
-    <http pattern="/register" security="none"/>
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <property name="securityManager" ref="securityManager"/>
+        <property name="loginUrl" value="/login"/>
+        <property name="successUrl" value="/article/form"/>
+        <property name="unauthorizedUrl" value="/login"/>
+        <property name="filters">
+            <map>
+                <entry key="authc" value-ref="formAuthenticationFilter"/>
+            </map>
+        </property>
+        <property name="filterChainDefinitions">
+            <value>
+                /login = anon
+                /monitoring* = perms[role:admin]
+                /admin/** = perms[role:admin]
+                /article/* = perms[role:user]
+                /resume/* = perms[role:user]
+                /user/change* = authc
+            </value>
+        </property>
+    </bean>
 
-    <http>
-        <form-login login-page="/login" login-processing-url="/login/check"
-                    authentication-failure-url="/login?errorCode=1"
-                    authentication-success-handler-ref="securityAuthenticationSuccessHandler"
-                    username-parameter="username" password-parameter="password"/>
+    <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
 
-        <logout invalidate-session="true" logout-success-url="/index" logout-url="/logout"/>
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="realm" ref="realm"/>
+    </bean>
 
-        <remember-me key="EmployMe" services-ref="rememberMeService"/>
+    <bean id="realm" class="org.apache.shiro.realm.text.PropertiesRealm">
 
-        <intercept-url pattern="/monitoring*" access="ROLE_ADMIN"/>
-        <intercept-url pattern="/admin/**" access="ROLE_ADMIN"/>
-        <intercept-url pattern="/article/*" access="ROLE_USER"/>
-        <intercept-url pattern="/resume/*" access="ROLE_USER"/>
-        <intercept-url pattern="/user/change*" access="ROLE_USER"/>
-    </http>
+    </bean>
 
-    <authentication-manager alias="authenticationManager">
-        <authentication-provider user-service-ref="userService">
-            <password-encoder ref="md5PasswordEncoder"/>
-        </authentication-provider>
-    </authentication-manager>
+    <bean id="md5PasswordEncoder"
+          class="org.springframework.security.authentication.encoding.Md5PasswordEncoder"/>
 
-    <beans:bean id="md5PasswordEncoder"
-                class="org.springframework.security.authentication.encoding.Md5PasswordEncoder"/>
 
-    <beans:bean id="securityAuthenticationSuccessHandler"
-                class="com.dream.web.security.SecurityAuthenticationSuccessHandler">
-        <beans:property name="targetUrl4Administrator" value="/admin/user/manage"/>
-        <beans:property name="targetUrl4Applicant" value="/article/form"/>
-    </beans:bean>
-
-    <beans:bean id="rememberMeService"
-                class="org.springframework.security.web.authentication.rememberme.TokenBasedRememberMeServices">
-        <beans:property name="key" value="EmployMe"/>
-        <beans:property name="parameter" value="rememberMe"/>
-        <beans:property name="userDetailsService" ref="userService"/>
-    </beans:bean>
-</beans:beans>
+    <bean id="formAuthenticationFilter"
+          class="org.apache.shiro.web.filter.authc.FormAuthenticationFilter"/>
+</beans>

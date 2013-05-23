@@ -1,13 +1,15 @@
 package com.dream.web.controller;
 
 import com.dream.dto.user.login.LoginDTO;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.AuthenticationException;
+import org.apache.shiro.authc.UsernamePasswordToken;
 import org.springframework.validation.BindException;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.ServletRequestUtils;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.SimpleFormController;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
@@ -42,8 +44,19 @@ public class LoginFormController extends SimpleFormController {
 
     @Override
     protected ModelAndView onSubmit(HttpServletRequest request, HttpServletResponse response, Object command, BindException errors) throws Exception {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/login/check");
-        dispatcher.forward(request, response);
-        return null;
+        LoginDTO loginDTO = (LoginDTO) command;
+        UsernamePasswordToken token = new UsernamePasswordToken(loginDTO.getUsername(), loginDTO.getPassword());
+
+        try {
+            SecurityUtils.getSubject().login(token);
+        } catch (AuthenticationException e) {
+            errors.reject("error.invalidLogin", "The username or password was not correct.");
+        }
+
+        if (errors.hasErrors()) {
+            return new ModelAndView("login", "login", loginDTO);
+        } else {
+            return new ModelAndView("redirect:/article/form");
+        }
     }
 }
