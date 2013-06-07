@@ -24,12 +24,12 @@ public class LoginValidator implements Validator {
 
         String username = loginDTO.getUsername();
         if (ValidateUtil.isEmptyText(username)) {
-            errors.rejectValue("username", null, "Username must not be empty!");
+            errors.rejectValue("username", null, "账号不能为空");
         }
 
         String password = loginDTO.getPassword();
         if (ValidateUtil.isEmptyText(password)) {
-            errors.rejectValue("password", null, "Password must not be empty!");
+            errors.rejectValue("password", null, "密码不能为空");
         }
     }
 }

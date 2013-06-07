@@ -12,7 +12,12 @@
     <script type="text/javascript" src="/js/jquery/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src="/js/main.js"></script>
     <link href="/css/style.css" rel="stylesheet"/>
-    <link href="/css/main.css" rel="stylesheet"/>
+
+    <!-- bootstrap -->
+    <script type="text/javascript" src="/bootstrap/js/bootstrap.js"></script>
+    <link href="/bootstrap/css/bootstrap.css" rel="stylesheet"/>
+
+    <link href="/css/style.css" rel="stylesheet"/>
     <decorator:head/>
 </head>
 <body>

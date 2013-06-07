@@ -5,12 +5,14 @@
     <title>技术文章 - ${articleDTO.title}</title>
 </head>
 <body>
-<div id="articleView">
-    <h3><strong>${articleDTO.title}</strong>(${articleDTO.category.label})</h3>
+<div class="hero-unit">
+    <h2><strong>${articleDTO.title}</strong>(${articleDTO.category.label})</h2>
 
-    <div>
-        ${articleDTO.content}
-    </div>
+    <p>${articleDTO.content}</p>
+
+    <p>
+        <a href="overview" class="btn btn-small btn-primary">返回</a>
+    </p>
 </div>
 </body>
 </html>

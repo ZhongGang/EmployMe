@@ -17,7 +17,7 @@
 <div align="left">
 <form:form commandName="resume" method="post" enctype="multipart/form-data">
 <fieldset>
-    <legend>基本信息填写</legend>
+    <legend><strong>基本信息填写</strong></legend>
     <table>
         <tr>
             <td>中文姓名</td>
@@ -73,28 +73,28 @@
                 <cus:errors path="basicInfoDTO.selfDescription"/>
             </td>
         </tr>
-        <%--<tr>--%>
+            <%--<tr>--%>
             <%--<td>头像</td>--%>
             <%--<td>--%>
-                <%--<input type="file" name="basicInfoDTO.portrait"/>--%>
+            <%--<input type="file" name="basicInfoDTO.portrait"/>--%>
             <%--</td>--%>
             <%--<td colspan="2">--%>
-                <%--<c:if test="${!resume.create}">--%>
-                    <%--<img src="portrait/show?resumeGuid=${resume.guid}" alt="PORTRAIT" width="80" height="80"/>--%>
-                <%--</c:if>--%>
+            <%--<c:if test="${!resume.create}">--%>
+            <%--<img src="portrait/show?resumeGuid=${resume.guid}" alt="PORTRAIT" width="80" height="80"/>--%>
+            <%--</c:if>--%>
             <%--</td>--%>
-        <%--</tr>--%>
+            <%--</tr>--%>
     </table>
 </fieldset>
 <fieldset>
-    <legend>教育经历填写<a href="javascript:addEducationExperienceItem()">+</a></legend>
+    <legend><strong>教育经历填写</strong><a href="javascript:addEducationExperienceItem()" class="btn btn-mini btn-primary">+</a></legend>
     <div id="educationExperienceContent" educationExperienceMaxIndex="${fn:length(resume.educationExperienceDTOs)}">
         <c:choose>
             <c:when test="${resume.hasEducationExperiences}">
                 <c:forEach items="${resume.educationExperienceDTOs}" var="educationExperienceDTO"
                            varStatus="status">
                     <fieldset>
-                        <legend>教育经历<a href="javascript:removeExperienceItem(this)">-</a></legend>
+                        <legend>教育经历<a href="javascript:removeExperienceItem(this)" class="btn btn-mini btn-primary">-</a></legend>
                         <table>
                             <tr>
                                 <td>开始日期</td>
@@ -140,7 +140,7 @@
             </c:when>
             <c:otherwise>
                 <fieldset>
-                    <legend>教育经历<a href="javascript:void(0)" onclick="removeExperienceItem(this)">-</a></legend>
+                    <legend><strong>教育经历</strong><a href="javascript:void(0)" onclick="removeExperienceItem(this)" class="btn btn-mini btn-primary">-</a></legend>
                     <table>
                         <tr>
                             <td>开始日期</td>
@@ -177,13 +177,13 @@
     </div>
 </fieldset>
 <fieldset>
-    <legend>工作经历填写<a href="javascript:addWorkExperienceItem()">+</a></legend>
+    <legend><strong>工作经历填写</strong><a href="javascript:addWorkExperienceItem()" class="btn btn-mini btn-primary">+</a></legend>
     <div id="workExperienceContent" workExperienceMaxIndex="${fn:length(resume.workExperienceDTOs)}">
         <c:choose>
             <c:when test="${resume.hasWorkExperiences}">
                 <c:forEach items="${resume.workExperienceDTOs}" var="workExperienceDTO" varStatus="status">
                     <fieldset>
-                        <legend>工作经历<a href="javascript:void(0)" onclick="removeExperienceItem(this)">-</a></legend>
+                        <legend>工作经历<a href="javascript:void(0)" onclick="removeExperienceItem(this)" class="btn btn-mini btn-primary">-</a></legend>
                         <table>
                             <tr>
                                 <td>开始日期</td>
@@ -237,7 +237,7 @@
             </c:when>
             <c:otherwise>
                 <fieldset>
-                    <legend>工作经历<a href="javascript:void(0)" onclick="removeExperienceItem(this)">-</a></legend>
+                    <legend><strong>工作经历</strong><a href="javascript:void(0)" onclick="removeExperienceItem(this)" class="btn btn-mini btn-primary">-</a></legend>
                     <table>
                         <tr>
                             <td>开始日期</td>
@@ -279,13 +279,13 @@
     </div>
 </fieldset>
 <fieldset>
-    <legend>项目经验填写<a href="javascript:addProjectExperienceItem()">+</a></legend>
+    <legend><strong>项目经验填写</strong><a href="javascript:addProjectExperienceItem()" class="btn btn-mini btn-primary">+</a></legend>
     <div id="projectExperienceContent" projectExperienceMaxIndex="${fn:length(resume.projectExperienceDTOs)}">
         <c:choose>
             <c:when test="${resume.hasProjectExperiences}">
                 <c:forEach items="${resume.projectExperienceDTOs}" var="projectExperienceDTO" varStatus="status">
                     <fieldset>
-                        <legend>项目经验<a href="javascript:void(0)" onclick="removeExperienceItem(this)">-</a></legend>
+                        <legend>项目经验<a href="javascript:void(0)" onclick="removeExperienceItem(this)" class="btn btn-mini btn-primary">-</a></legend>
                         <table>
                             <tr>
                                 <td>开始日期</td>
@@ -343,7 +343,7 @@
             </c:when>
             <c:otherwise>
                 <fieldset>
-                    <legend>项目经验<a href="javascript:void(0)" onclick="removeExperienceItem(this)">-</a></legend>
+                    <legend><strong>项目经验</strong><a href="javascript:void(0)" onclick="removeExperienceItem(this)" class="btn btn-mini btn-primary">-</a></legend>
                     <table>
                         <tr>
                             <td>开始日期</td>
@@ -386,8 +386,8 @@
     </div>
 </fieldset>
 <input type="hidden" name="resume.guid" value="${resume.guid}"/>
-<input type="button" onclick="submitResumeForm(this.form)" value="保存"/>
-<input type="button" onclick="previewResumeForm(this.form)" value="预览"/>
+<input type="button" onclick="submitResumeForm(this.form)" value="保存" class="btn btn-large btn-primary"/>
+<input type="button" onclick="previewResumeForm(this.form)" value="预览" class="btn btn-large btn-primary"/>
 </form:form>
 </div>
 </body>

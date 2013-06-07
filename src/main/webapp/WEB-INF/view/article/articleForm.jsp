@@ -30,7 +30,8 @@
             </tr>
             <tr>
                 <td colspan="2">
-                    <input type="submit" value="发布"/>
+                    <input type="submit" value="发布" class="btn btn-large btn-primary"/>
+                    <input type="button" value="返回" onclick="forward('overview')" class="btn btn-large btn-info"/>
                 </td>
             </tr>
         </table>

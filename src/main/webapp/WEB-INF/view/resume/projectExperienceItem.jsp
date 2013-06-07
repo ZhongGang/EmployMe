@@ -1,6 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <fieldset>
-    <legend>项目经验<a href="javascript:void(0)" onclick="removeExperienceItem(this)">-</a></legend>
+    <legend>
+        <strong>项目经验</strong>
+        <a href="javascript:void(0)" onclick="removeExperienceItem(this)" class="btn btn-mini btn-primary">-</a>
+    </legend>
     <script type="text/javascript" src="/js/resume.js"></script>
     <table>
         <tr>

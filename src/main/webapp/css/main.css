@@ -16,7 +16,7 @@ input[type='password'] {
 
 input[type='button'], input[type='submit'] {
     cursor: pointer;
-    width: 160px;
+    width: 200px;
     height: 40px;
     font-size: 20px;
     font-weight: bold;

@@ -7,19 +7,20 @@
 </head>
 <body>
 <div id="articleOverview" align="left">
-    <p><input id="newArticleButton" type="button" onclick="forward('form')" value="撰写新文章"/></p>
+    <p><input type="button" onclick="forward('form')" value="撰写新文章" class="btn btn-large btn-primary"/></p>
     <c:forEach items="${articleDTOs}" var="article">
         <fieldset>
             <legend>
                 <strong>${article.title}(${article.category})</strong>
                 <c:choose>
                     <c:when test="${article.active}">
-                        <a href="view?guid=${article.guid}">查看</a>
-                        <a href="update?guid=${article.guid}">修改</a>
-                        <a href="deactive?guid=${article.guid}">禁用</a>
+                        <a href="view?guid=${article.guid}" class="btn btn-small btn-primary">查看</a>
+                        <a href="update?guid=${article.guid}" class="btn btn-small btn-primary">修改</a>
+                        <a href="javascript:confirm('删除','确认删除该篇文章吗？','deactive?guid=${article.guid}')"
+                           class="btn btn-small btn-warning">禁用</a>
                     </c:when>
                     <c:otherwise>
-                        <a href="active?guid=${article.guid}">启用</a>
+                        <a href="active?guid=${article.guid}" class="btn btn-small btn-primary">启用</a>
                     </c:otherwise>
                 </c:choose>
             </legend>

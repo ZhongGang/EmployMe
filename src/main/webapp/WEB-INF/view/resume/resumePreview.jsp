@@ -8,7 +8,7 @@
 <body>
 <div align="left">
     <fieldset>
-        <legend>基本信息查看</legend>
+        <legend><strong>基本信息查看</strong></legend>
         <table>
             <tr>
                 <td> ${resume.basicInfoDTO.chineseName} </td>

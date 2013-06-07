@@ -26,35 +26,35 @@ public class RegisterValidator implements Validator {
 
         String username = registrationDTO.getUsername();
         if (ValidateUtil.isEmptyText(username)) {
-            errors.rejectValue("username", null, "Username must not be empty!");
+            errors.rejectValue("username", null, "账号不能为空");
         } else {
             boolean exist = userService.existUsername(username);
             if (exist) {
-                errors.rejectValue("username", null, "Username has existed!");
+                errors.rejectValue("username", null, "账号已存在");
             }
         }
 
         String password = registrationDTO.getPassword();
         if (ValidateUtil.isEmptyText(password)) {
-            errors.rejectValue("password", null, "Password must not be empty!");
+            errors.rejectValue("password", null, "密码不能为空");
         }
 
         String nickname = registrationDTO.getNickname();
         if (ValidateUtil.isEmptyText(nickname)) {
-            errors.rejectValue("nickname", null, "Nickname must not be empty!");
+            errors.rejectValue("nickname", null, "呢称不能为空");
         }
 
         String email = registrationDTO.getEmail();
         if (ValidateUtil.isEmptyText(email)) {
-            errors.rejectValue("email", null, "Email must not be empty!");
+            errors.rejectValue("email", null, "邮件地址不能为空");
         } else {
             if (ValidateUtil.isEmail(email)) {
                 boolean exist = userService.emailExist(email);
                 if (exist) {
-                    errors.rejectValue("email", null, "Email has existed!");
+                    errors.rejectValue("email", null, "邮件地址已存在");
                 }
             } else {
-                errors.rejectValue("email", null, "The format of email is wrong!");
+                errors.rejectValue("email", null, "邮件地址格式有误");
             }
         }
     }

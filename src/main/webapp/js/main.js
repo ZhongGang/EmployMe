@@ -1,6 +1,21 @@
 $(function() {
     $("table").attr("cellpadding", "10");
+
+    initFormErrors();
 });
+
+function initFormErrors() {
+    $(".form-error").each(function() {
+        $(this).prev().css('border', '1px solid red');
+
+        var content = $(this).html();
+        $(this).prev().tooltip({
+                    title:content,
+                    placement:'right',
+                    delay: { show: 0, hide: 3000 }
+                });
+    });
+}
 
 function forward(url) {
     location.href = url;
@@ -16,7 +31,8 @@ function submitUserInfoChangeFormDialog(formObject) {
             closeDialog();
             location.reload();
         } else {
-            $("#formDialog").html(result);
+            $("#dialog").html(result);
+            initFormErrors();
         }
     });
 }
@@ -35,4 +51,14 @@ function createDynamicDialog(title, width, height, modal, url) {
 
 function closeDialog() {
     $("#formDialog").dialog('close');
+}
+
+function confirm(title, content, url) {
+    $("#confirmDialog").confirmModal({
+                heading: title,
+                body: content,
+                callback:function() {
+                    location.href = url;
+                }
+            });
 }

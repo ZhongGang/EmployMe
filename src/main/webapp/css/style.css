@@ -5,7 +5,7 @@
 body {
     font: normal 16px/33px 'Microsoft YaHei';
     padding: 0px;
-    background-color: #71D1FF;
+    background-color: #f5f5f5;
     color: #222222;
 }
 
@@ -41,8 +41,8 @@ h4 {
 }
 
 #header {
-    background-color: #61D1FA;
-    color: #fff;
+    background-color: #f5f5f5;
+    color: #0044cc;
     padding: 20px 20px 20px 20px;
 }
 
@@ -69,7 +69,7 @@ h4 {
     padding: 5px 30px 0px 30px;
     margin-bottom: 30px;
     color: #222222;
-    background-color: #71D1FF;
+    background-color: #f5f5f5;
     border-bottom: solid 1px #DADADA;
     clear: both;
 }
@@ -108,19 +108,19 @@ h4 {
 
 #menu ul li a:hover {
     background-color: #0022AA;
-    color: #fff;
+    color: #f5f5f5;
 }
 
 #menu ul li.active, #menu ul li.active a, #menu ul li.active a:hover {
-    background-color: #71D1FF;
-    color: #ffffff;
+    background-color: #f5f5f5;
+    color: #0044cc;
 }
 
 #container {
     position: relative;
     width: 920px;
     background-color: #ffffff;
-    border: 1px solid #71D1FF;
+    border: 1px solid #f5f5f5;
     padding: 20px 20px 20px 20px;
     border-radius: 5px;
 }
@@ -148,11 +148,15 @@ h4 {
     text-align: center;
     margin: 20px 0px 0px 0px;
     padding-top: 15px;
-    border-top: solid 1px #71D1FF;
+    border-top: solid 1px #f5f5f5;
     clear: both;
 }
 
 .clearit {
     clear: both;
     height: 1px;
+}
+
+.form-error {
+    display: none;
 }

@@ -12,10 +12,16 @@
     <script type="text/javascript" src="/js/jquery/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src="/js/jquery/ui/jquery-ui-1.10.1.custom.min.js"></script>
     <script type="text/javascript" src="/js/jquery/ui/jquery.ui.dialog.min.js"></script>
+    <script type="text/javascript" src="/js/jquery/ui/jquery.ui.tooltip.js"></script>
     <script type="text/javascript" src="/js/main.js"></script>
     <link href="/css/jquery/ui/jquery-ui-1.10.1.custom.min.css" rel="stylesheet"/>
+
+    <!-- bootstrap -->
+    <script type="text/javascript" src="/bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript" src="/bootstrap/js/bootstrap-confirm.js"></script>
+    <link href="/bootstrap/css/bootstrap.css" rel="stylesheet"/>
+
     <link href="/css/style.css" rel="stylesheet"/>
-    <link href="/css/main.css" rel="stylesheet"/>
     <decorator:head/>
 </head>
 <body>
@@ -27,8 +33,9 @@
     </div>
     <div id="rightHeader">
         <h3>
-            <a href="/logout">退出</a>
-            <a href="javascript:void(0)" onclick="createUserInfoChangeFormDialog()">修改</a>
+            <a href="/logout" class="btn btn-primary">退出</a>
+            <a class="btn btn-primary" data-toggle="modal" data-remote="/user/change"
+               data-target="#dialog">修改</a>
         </h3>
     </div>
 </div>
@@ -51,6 +58,14 @@
     &copy; 2013 Zhong Gang's Website
 </div>
 
-<div id="formDialog" style="display: none;"></div>
+<div id="dialog" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+    <div class="modal-header" style="display: none;">
+    </div>
+    <div class="modal-body">
+    </div>
+    <div class="modal-footer" style="display: none;">
+    </div>
+</div>
+<div id="confirmDialog" style="display: none;"></div>
 </body>
 </html>
