@@ -1,5 +1,6 @@
 package com.dream.domain.user;
 
+import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
@@ -13,15 +14,8 @@ import java.util.List;
  * Date: 13-3-20
  * Time: 上午12:00
  */
+@NoArgsConstructor
 public class Administrator extends User {
-
-    public Administrator() {
-        super();
-    }
-
-    public Administrator(String username, String password, String nickname, String email) {
-        super(username, password, nickname, email);
-    }
 
     @Override
     public boolean isAdministrator() {

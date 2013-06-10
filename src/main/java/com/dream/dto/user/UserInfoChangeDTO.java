@@ -2,6 +2,8 @@ package com.dream.dto.user;
 
 import com.dream.domain.user.User;
 import com.dream.util.ValidateUtil;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.security.authentication.encoding.PasswordEncoder;
 
 /**
@@ -10,6 +12,8 @@ import org.springframework.security.authentication.encoding.PasswordEncoder;
  * Date: 13-3-17
  * Time: 上午11:15
  */
+@Data
+@NoArgsConstructor
 public class UserInfoChangeDTO {
     private String userGuid;
     private String nickname;
@@ -17,9 +21,6 @@ public class UserInfoChangeDTO {
     private String oldPassword;
     private String newPassword;
     private String originalPassword;
-
-    public UserInfoChangeDTO() {
-    }
 
     public UserInfoChangeDTO(User user) {
         this.userGuid = user.guid();
@@ -30,46 +31,6 @@ public class UserInfoChangeDTO {
 
     public boolean isShouldChangePassword() {
         return !ValidateUtil.isEmptyText(this.newPassword);
-    }
-
-    public String getNickname() {
-        return nickname;
-    }
-
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getOldPassword() {
-        return oldPassword;
-    }
-
-    public void setOldPassword(String oldPassword) {
-        this.oldPassword = oldPassword;
-    }
-
-    public String getNewPassword() {
-        return newPassword;
-    }
-
-    public void setNewPassword(String newPassword) {
-        this.newPassword = newPassword;
-    }
-
-    public String getUserGuid() {
-        return userGuid;
-    }
-
-    public String getOriginalPassword() {
-        return originalPassword;
     }
 
     public boolean isSamePassword(PasswordEncoder passwordEncoder) {

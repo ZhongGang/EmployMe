@@ -1,6 +1,7 @@
 package com.dream.dto.index;
 
 import com.dream.domain.article.Article;
+import lombok.Getter;
 
 /**
  * Created by IntelliJ IDEA.
@@ -8,6 +9,7 @@ import com.dream.domain.article.Article;
  * Date: 13-3-18
  * Time: 上午12:26
  */
+@Getter
 public class BriefArticleDTO {
     private String guid;
     private String title;
@@ -17,17 +19,5 @@ public class BriefArticleDTO {
         this.guid = article.guid();
         this.title = article.title();
         this.category = article.category().getLabel();
-    }
-
-    public String getGuid() {
-        return guid;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public String getCategory() {
-        return category;
     }
 }

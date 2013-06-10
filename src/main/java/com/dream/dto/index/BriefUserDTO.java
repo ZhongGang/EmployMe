@@ -3,6 +3,7 @@ package com.dream.dto.index;
 import com.dream.domain.article.Article;
 import com.dream.domain.resume.Resume;
 import com.dream.domain.user.User;
+import lombok.Getter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +14,7 @@ import java.util.List;
  * Date: 13-3-18
  * Time: 上午12:25
  */
+@Getter
 public class BriefUserDTO {
     private String guid;
     private String nickname;
@@ -31,21 +33,5 @@ public class BriefUserDTO {
             BriefArticleDTO briefArticleDTO = new BriefArticleDTO(article);
             briefArticleDTOs.add(briefArticleDTO);
         }
-    }
-
-    public String getGuid() {
-        return guid;
-    }
-
-    public String getNickname() {
-        return nickname;
-    }
-
-    public BriefResumeDTO getBriefResumeDTO() {
-        return briefResumeDTO;
-    }
-
-    public List<BriefArticleDTO> getBriefArticleDTOs() {
-        return briefArticleDTOs;
     }
 }

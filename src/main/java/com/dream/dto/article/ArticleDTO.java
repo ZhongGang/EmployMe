@@ -5,6 +5,8 @@ import com.dream.domain.article.Category;
 import com.dream.domain.user.User;
 import com.dream.util.SecurityUtil;
 import com.dream.util.ValidateUtil;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * Created by IntelliJ IDEA.
@@ -12,14 +14,13 @@ import com.dream.util.ValidateUtil;
  * Date: 13-3-2
  * Time: 下午7:45
  */
+@Data
+@NoArgsConstructor
 public class ArticleDTO {
     private String guid;
     private String title;
     private String content;
     private Category category;
-
-    public ArticleDTO() {
-    }
 
     public ArticleDTO(Article article) {
         this.guid = article.guid();
@@ -40,37 +41,5 @@ public class ArticleDTO {
     public Article toUpdateArticle(Article article) {
         article.update(this.title, this.content, this.category);
         return article;
-    }
-
-    public String getGuid() {
-        return guid;
-    }
-
-    public void setGuid(String guid) {
-        this.guid = guid;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public Category getCategory() {
-        return category;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
     }
 }

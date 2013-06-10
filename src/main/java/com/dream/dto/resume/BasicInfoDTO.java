@@ -4,6 +4,8 @@ import com.dream.domain.resume.BasicInfo;
 import com.dream.domain.resume.Gender;
 import com.dream.domain.resume.Name;
 import com.dream.util.JodaTimeUtil;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.joda.time.LocalDate;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -13,6 +15,8 @@ import org.springframework.web.multipart.MultipartFile;
  * Date: 13-3-6
  * Time: 上午4:41
  */
+@Data
+@NoArgsConstructor
 public class BasicInfoDTO {
     private String englishName;
     private String chineseName;
@@ -24,9 +28,6 @@ public class BasicInfoDTO {
     private String address;
     private String selfDescription;
     private MultipartFile portrait;
-
-    public BasicInfoDTO() {
-    }
 
     public BasicInfoDTO(BasicInfo basicInfo) {
         Name name = basicInfo.name();
@@ -41,78 +42,6 @@ public class BasicInfoDTO {
         this.selfDescription = basicInfo.selfDescription();
     }
 
-    public String getEnglishName() {
-        return englishName;
-    }
-
-    public void setEnglishName(String englishName) {
-        this.englishName = englishName;
-    }
-
-    public String getChineseName() {
-        return chineseName;
-    }
-
-    public void setChineseName(String chineseName) {
-        this.chineseName = chineseName;
-    }
-
-    public String getBirthday() {
-        return birthday;
-    }
-
-    public void setBirthday(String birthday) {
-        this.birthday = birthday;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getQq() {
-        return qq;
-    }
-
-    public void setQq(String qq) {
-        this.qq = qq;
-    }
-
-    public Gender getGender() {
-        return gender;
-    }
-
-    public void setGender(Gender gender) {
-        this.gender = gender;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getSelfDescription() {
-        return selfDescription;
-    }
-
-    public void setSelfDescription(String selfDescription) {
-        this.selfDescription = selfDescription;
-    }
-
     public BasicInfo toBasicInfo() {
         Name name = new Name(this.chineseName, this.englishName);
         LocalDate birthday = JodaTimeUtil.parseLocalDate(this.birthday);
@@ -125,13 +54,5 @@ public class BasicInfoDTO {
 //            e.printStackTrace();
 //        }
         return new BasicInfo(name, birthday, this.phone, this.email, this.qq, this.gender, this.address, this.selfDescription);
-    }
-
-    public MultipartFile getPortrait() {
-        return portrait;
-    }
-
-    public void setPortrait(MultipartFile portrait) {
-        this.portrait = portrait;
     }
 }

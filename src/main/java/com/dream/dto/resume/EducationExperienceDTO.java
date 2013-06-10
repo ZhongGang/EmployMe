@@ -2,6 +2,8 @@ package com.dream.dto.resume;
 
 import com.dream.domain.resume.EducationExperience;
 import com.dream.util.JodaTimeUtil;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.joda.time.LocalDate;
 
 /**
@@ -10,6 +12,8 @@ import org.joda.time.LocalDate;
  * Date: 13-3-6
  * Time: 下午8:49
  */
+@Data
+@NoArgsConstructor
 public class EducationExperienceDTO {
     private String guid;
     private String startDate;
@@ -18,9 +22,6 @@ public class EducationExperienceDTO {
     private String major;
     private String description;
 
-    public EducationExperienceDTO() {
-    }
-
     public EducationExperienceDTO(EducationExperience educationExperience) {
         this.guid = educationExperience.guid();
         this.startDate = educationExperience.getStartDate().toString();
@@ -28,54 +29,6 @@ public class EducationExperienceDTO {
         this.school = educationExperience.getSchool();
         this.major = educationExperience.getMajor();
         this.description = educationExperience.getDescription();
-    }
-
-    public String getGuid() {
-        return guid;
-    }
-
-    public void setGuid(String guid) {
-        this.guid = guid;
-    }
-
-    public String getStartDate() {
-        return startDate;
-    }
-
-    public void setStartDate(String startDate) {
-        this.startDate = startDate;
-    }
-
-    public String getEndDate() {
-        return endDate;
-    }
-
-    public void setEndDate(String endDate) {
-        this.endDate = endDate;
-    }
-
-    public String getSchool() {
-        return school;
-    }
-
-    public void setSchool(String school) {
-        this.school = school;
-    }
-
-    public String getMajor() {
-        return major;
-    }
-
-    public void setMajor(String major) {
-        this.major = major;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public EducationExperience toEducationExperience() {

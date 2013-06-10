@@ -2,6 +2,7 @@ package com.dream.domain.user;
 
 import com.dream.domain.article.Article;
 import com.dream.domain.resume.Resume;
+import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
@@ -15,18 +16,14 @@ import java.util.List;
  * Date: 13-3-20
  * Time: 上午12:00
  */
+@NoArgsConstructor
 public class Applicant extends User {
     private List<Article> articles = new ArrayList<Article>();
     private Resume resume;
 
-    public Applicant() {
-        super();
-    }
-
     public Applicant(String username, String password, String nickname, String email) {
         super(username, password, nickname, email);
     }
-
 
     public List<Article> articles() {
         return articles;

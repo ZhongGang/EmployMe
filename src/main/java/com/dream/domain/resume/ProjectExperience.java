@@ -1,6 +1,8 @@
 package com.dream.domain.resume;
 
 import com.dream.domain.DomainObject;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.joda.time.LocalDate;
 
 import java.util.ArrayList;
@@ -12,6 +14,8 @@ import java.util.List;
  * Date: 13-3-5
  * Time: 下午10:16
  */
+@NoArgsConstructor
+@AllArgsConstructor
 public class ProjectExperience extends DomainObject {
     private LocalDate startDate;
     private LocalDate endDate;
@@ -19,18 +23,6 @@ public class ProjectExperience extends DomainObject {
     private List<String> technologies = new ArrayList<String>();
     private String remark;
     private String duty;
-
-    public ProjectExperience() {
-    }
-
-    public ProjectExperience(LocalDate startDate, LocalDate endDate, String project, List<String> technologies, String remark, String duty) {
-        this.startDate = startDate;
-        this.endDate = endDate;
-        this.project = project;
-        this.technologies = technologies;
-        this.remark = remark;
-        this.duty = duty;
-    }
 
     public LocalDate getStartDate() {
         return startDate;

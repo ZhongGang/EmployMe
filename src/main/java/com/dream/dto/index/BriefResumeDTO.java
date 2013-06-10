@@ -3,6 +3,7 @@ package com.dream.dto.index;
 import com.dream.domain.resume.BasicInfo;
 import com.dream.domain.resume.Resume;
 import com.dream.util.JodaTimeUtil;
+import lombok.Getter;
 
 /**
  * Created by IntelliJ IDEA.
@@ -10,6 +11,7 @@ import com.dream.util.JodaTimeUtil;
  * Date: 13-3-18
  * Time: 上午12:29
  */
+@Getter
 public class BriefResumeDTO {
     private String guid;
     private String name;
@@ -22,21 +24,5 @@ public class BriefResumeDTO {
         this.name = basicInfo.name().chineseName();
         this.gender = basicInfo.gender().getLabel();
         this.birthday = JodaTimeUtil.getLocalDateAsString(basicInfo.birthday());
-    }
-
-    public String getGuid() {
-        return guid;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public String getBirthday() {
-        return birthday;
     }
 }

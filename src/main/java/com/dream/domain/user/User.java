@@ -3,6 +3,8 @@ package com.dream.domain.user;
 import com.dream.domain.DomainObject;
 import com.dream.domain.article.Article;
 import com.dream.domain.resume.Resume;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collections;
@@ -14,21 +16,13 @@ import java.util.List;
  * Date: 13-3-15
  * Time: 上午1:26
  */
+@NoArgsConstructor
+@AllArgsConstructor
 public abstract class User extends DomainObject implements UserDetails {
     private String username;
     private String password;
     private String nickname;
     private String email;
-
-    public User() {
-    }
-
-    public User(String username, String password, String nickname, String email) {
-        this.username = username;
-        this.password = password;
-        this.nickname = nickname;
-        this.email = email;
-    }
 
     @Override
     public String getPassword() {

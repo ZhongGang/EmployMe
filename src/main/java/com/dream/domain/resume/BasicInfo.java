@@ -1,6 +1,7 @@
 package com.dream.domain.resume;
 
 import com.dream.domain.attachment.Portrait;
+import lombok.NoArgsConstructor;
 import org.joda.time.LocalDate;
 
 /**
@@ -9,6 +10,7 @@ import org.joda.time.LocalDate;
  * Date: 13-3-5
  * Time: 下午9:53
  */
+@NoArgsConstructor
 public class BasicInfo {
     private Name name;
     private LocalDate birthday;
@@ -19,9 +21,6 @@ public class BasicInfo {
     private String address;
     private String selfDescription;
     private Portrait portrait;
-
-    public BasicInfo() {
-    }
 
     public BasicInfo(Name name, LocalDate birthday, String phone, String email, String qq, Gender gender, String address, String selfDescription) {
         this.name = name;

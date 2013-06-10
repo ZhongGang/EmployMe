@@ -2,6 +2,7 @@ package com.dream.domain.article;
 
 import com.dream.domain.DomainObject;
 import com.dream.domain.user.User;
+import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,15 +13,13 @@ import java.util.List;
  * Date: 13-3-2
  * Time: 下午6:26
  */
+@NoArgsConstructor
 public class Article extends DomainObject {
     private String title;
     private String content;
     private Category category;
     private List<Comment> comments = new ArrayList<Comment>();
     private User user;
-
-    public Article() {
-    }
 
     public Article(String title, String content, Category category,User user) {
         this.title = title;

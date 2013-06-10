@@ -1,6 +1,7 @@
 package com.dream.dto.article;
 
 import com.dream.domain.article.Article;
+import lombok.Getter;
 
 /**
  * Created by IntelliJ IDEA.
@@ -9,10 +10,15 @@ import com.dream.domain.article.Article;
  * Time: 上午1:51
  */
 public class ArticleViewDTO {
+    @Getter
     private String guid;
+    @Getter
     private String title;
+    @Getter
     private String content;
+    @Getter
     private String category;
+    @Getter
     private boolean active;
 
     public ArticleViewDTO() {
@@ -26,23 +32,4 @@ public class ArticleViewDTO {
         this.active = article.active();
     }
 
-    public String getGuid() {
-        return guid;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public boolean isActive() {
-        return active;
-    }
 }
